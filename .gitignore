@@ -1,5 +1,6 @@
 # Visual Studio 2015 user specific files
 .vs/
+.idea
 
 # Compiled Object files
 *.slo
@@ -48,6 +49,7 @@ SourceArt/**/*.tga
 # Binary Files
 Binaries/*
 Plugins/*/Binaries/*
+Plugins/*/*/Binaries/*
 
 # Builds
 Build/*
@@ -69,6 +71,9 @@ Saved/*
 # Compiled source files for the engine to use
 Intermediate/*
 Plugins/*/Intermediate/*
+Plugins/*/*/Intermediate/*
+Plugins/Developer/RiderLink/*
+Plugins/BCBlueprintTemplates/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
