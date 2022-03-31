@@ -27,6 +27,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	// TODO: Make this VisibleAnywhere
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UProceduralMeshComponent* ProcMesh;
 

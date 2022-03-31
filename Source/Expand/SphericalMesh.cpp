@@ -17,6 +17,8 @@ ASphericalMesh::ASphericalMesh()
 
 void ASphericalMesh::CreateSphere()
 {
+	// TODO: Not much of a need to use C++ type randoms, use UKismetSystemLibrary/UKismetMathLibrary static functions
+	// float RandomFloat = UKismetMathLibrary::RandomFloatInRange(0, 1);
 	srand(time(NULL));
 	Seeds.Empty();
 	FaceVertices.Empty();
@@ -35,6 +37,10 @@ void ASphericalMesh::CreateSphere()
 		{
 			for (int k = -1; k < 2; k += 2)
 			{
+				// TODO: You can use ? style if conditions (Debatable)
+				// FVector Y(0, Radius * j, 0)
+				// FVector Z(0, 0, Radius * k)
+				// CreateFace(TArray<FVector>({ {Radius * i, 0, 0 }, (i*j*k) ? Y : Z, (i*j*k) ? Z : Y }));
 				if ( i*j*k == -1)
 					CreateFace(TArray<FVector>({ {Radius * i, 0, 0 }, { 0, Radius * j, 0 }, { 0, 0, Radius * k } }));
 				else
@@ -74,7 +80,7 @@ void ASphericalMesh::CreateFace(TArray<FVector> Vertices)
 				OnNoiseMap = (Temp + Seeds[k]) / Effective_Scale;
 				ZValue += MathHelper->PerlinNoise3D(OnNoiseMap) * Effective_Amplitude;
 			}
-			
+			// TODO: MathHelper is unnecessary. Use static functions like FMath::PerlinNoise3D(val). Always navigate to source code 
 			FVector OnNoiseMountainRangeMask = (Temp + MountainRangeMaskSeed) / MountainRangeMaskScale;
 			const float MountainRangeMask = MathHelper->PerlinNoise3D((OnNoiseMountainRangeMask));
 			
